@@ -1,0 +1,124 @@
+### Register User
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+    "name": "Test User",
+    "email": "test3@example.com",
+    "password": "password123"
+}
+
+### Register Admin
+POST http://localhost:4000/register
+Content-Type: application/json
+
+{
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "password": "admin123",
+    "isAdmin": true
+}
+
+### Test API
+GET http://localhost:4000/
+### Login User
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### Login Admin
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "email": "admin@example.com",
+    "password": "admin123"
+}
+
+### Get All Courses
+GET http://localhost:4000/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDQ5YjQ4MmE4OTA3ZTU1ODJhNTZlYSIsIm5hbWUiOiJUZXN0IFVzZXIiLCJpYXQiOjE3NDk2NDk3NDUsImV4cCI6MTc0OTY1MDY0NX0.sDy4uZAM3F8EtvT_Z-EBdWlWrql3aZPMcYP-jHSmnow
+
+### Get Course Notes
+GET http://localhost:4000/courses/6846ea851dae283e164a25bb/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk4OTQ1MzkyM2YxMjU3YjlhNmZkZCIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaWF0IjoxNzQ5NjQ5OTMzLCJleHAiOjE3NDk2NTA4MzN9.v5a9zoJBFduBp3VauVES-tuOCkdzolRUdvg36mlISqA
+
+### Create Course (Admin Only)
+POST http://localhost:4000/courses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+{
+    "title": "Python Basics",
+    "description": "Introduction to Python Programming",
+    "duration": "6 weeks",
+    "difficulty": "Beginner",
+    "topics": [
+        {
+            "title": "Python Syntax",
+            "content": "Basic syntax and data types",
+            "duration": "2 hours"
+        },
+        {
+            "title": "Control Flow",
+            "content": "If statements and loops",
+            "duration": "3 hours"
+        }
+    ]
+}
+
+### Update Course (Admin Only)
+PUT http://localhost:4000/courses/68499402e6e12f587eac6e10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+{
+    "title": "Updated Course Title",
+    "description": "Updated course description"
+}
+
+### Delete Course (Admin Only)
+DELETE http://localhost:4000/courses/6846ea851dae283e164a25bb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk4ZDVmOTFmNjhjMmJhYmY5YzY3NyIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaWF0IjoxNzQ5NjUwOTExLCJleHAiOjE3NDk2NTE4MTF9.T8FFPJdfPI8flgr_EN9sDgRVouPfVx36pMzWyo80kFA
+
+### Create Note (Admin Only)
+POST http://localhost:4000/courses/68499402e6e12f587eac6e10/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+{
+    "title": "Introduction to Variables",
+    "content": "# Variables in Programming\n\n## What are Variables?\nVariables are containers for storing data values.\n\n## Examples:\n```python\nname = 'John'\nage = 25\n```\n\n## Best Practices:\n1. Use descriptive names\n2. Follow naming conventions\n3. Initialize properly"
+}
+
+### Update Note (Admin Only)
+PUT http://localhost:4000/courses/68499402e6e12f587eac6e10/notes
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+{
+    "title": "Updated: Variables Introduction",
+    "content": "Updated content with markdown formatting..."
+}
+
+### Delete Note (Admin Only)
+DELETE http://localhost:4000/courses/68499402e6e12f587eac6e10/notes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+### Update Course Progress
+POST http://localhost:4000/progress
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
+
+{
+    "courseId": "6846ea851dae283e164a25bb",
+    "topicTitle": "Python Syntax"
+}
+
+### Get User Progress
+GET http://localhost:4000/progress/68449b482a8907e5582a56ea
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NDk5MjVhZGU3OGNkNjFmZjE0MDFkOSIsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNzQ5NjUyNDYzLCJleHAiOjE3NDk2NTMzNjN9.vW2GlOHkyBKD1QDSCMO-LCyretznlk7muPl_irzkggA
